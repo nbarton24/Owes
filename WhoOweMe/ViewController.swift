@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  WhoOweMe
 //
-//  Created by Nick Barton on 7/15/16.
+//  Created by Nick Barton on 7/19/16.
 //  Copyright © 2016 Nick Barton. All rights reserved.
 //
 
