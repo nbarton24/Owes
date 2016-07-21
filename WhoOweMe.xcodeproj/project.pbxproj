@@ -20,6 +20,7 @@
 		CBEFCF8B1D41540700ACF9EA /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */; };
 		CBEFCF8D1D4161E400ACF9EA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF8C1D4161E400ACF9EA /* Person.swift */; };
 		CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */; };
+		CBEFCF941D4164EF00ACF9EA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF931D4164EF00ACF9EA /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		CBEFCF8C1D4161E400ACF9EA /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
 		CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
+		CBEFCF931D4164EF00ACF9EA /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				CBEFCF8C1D4161E400ACF9EA /* Person.swift */,
+				CBEFCF931D4164EF00ACF9EA /* Item.swift */,
 				CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */,
 			);
 			name = Model;
@@ -190,6 +193,7 @@
 				CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */,
 				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,
 				CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */,
+				CBEFCF941D4164EF00ACF9EA /* Item.swift in Sources */,
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,
 				CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */,
 				CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */,

@@ -12,6 +12,9 @@ class ContactTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    
+    var contactSelected = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,6 +27,15 @@ class ContactTableViewCell: UITableViewCell {
     }
     @IBAction func selectContact(sender: AnyObject) {
         print("selected contact")
+        
+        if self.contactSelected == false {
+            self.contactSelected = true
+            self.backgroundColor = UIColor.greenColor()
+        }else {
+            self.contactSelected = false
+            self.backgroundColor = UIColor.whiteColor()
+        }
+        
     }
     
 }

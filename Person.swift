@@ -13,6 +13,7 @@ class Person {
     private var _firstName:String?
     private var _lastName:String?
     private var _phoneNums = [PhoneNumber]()
+    private var _items = [Item]()
     
     init(){
         self._firstName = "No"
