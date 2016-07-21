@@ -29,16 +29,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //let cell = AddPersonTableViewCell()
-        let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
-        return cell
-    }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        //let cell = AddPersonTableViewCell()
+//        let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
+//        return cell
+//    }
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         //code
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let c = UITableViewCell()
+        let c = contactTableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath)
+        
+        c.textLabel?.text = "Hello"
         
         return c
     }
