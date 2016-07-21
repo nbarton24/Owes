@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.contactTableView.registerNib(UINib(nibName: "AddPersonTableViewCell", bundle:nil), forCellReuseIdentifier: "AddCell")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,11 +30,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        //let cell = AddPersonTableViewCell()
-//        let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
-//        return cell
-//    }
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //let cell = AddPersonTableViewCell()
+        let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
+        return cell
+    }
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let height = AddPersonTableViewCell().frame.height
+        return height
+    }
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         //code
     }

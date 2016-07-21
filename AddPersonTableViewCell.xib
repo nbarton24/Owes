@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,16 +12,34 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgf-J9-ira">
-                        <rect key="frame" x="139" y="11" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add From Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgf-J9-ira">
+                        <rect key="frame" x="8" y="11" width="148" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="148" id="3zV-Wj-5TV"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-Ir-5rK">
+                        <rect key="frame" x="266" y="8" width="46" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="Q70-fr-kMr"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="j2t-Ir-5rK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="PRs-u1-e2d"/>
+                    <constraint firstItem="j2t-Ir-5rK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TYd-cA-v8f"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="j2t-Ir-5rK" secondAttribute="bottom" constant="-1.5" id="phU-Nz-PUe"/>
+                    <constraint firstItem="Tgf-J9-ira" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="y6t-Gz-hDZ"/>
+                    <constraint firstItem="Tgf-J9-ira" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="yIy-gO-Lty"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Tgf-J9-ira" secondAttribute="bottom" constant="3.5" id="ygc-iO-Uju"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="292" y="195"/>
         </tableViewCell>
