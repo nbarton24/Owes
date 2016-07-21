@@ -9,39 +9,47 @@
 import UIKit
 import ContactsUI
 
+protocol AddContactDelegate {
+    func addToContacts(people: [Person])
+}
+
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var contactsTable: UITableView!
-    lazy var contacts: [CNContact] = {
-        let contactStore = CNContactStore()
-        let keysToFetch = [
-            CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
-            CNContactPhoneNumbersKey]
-        
-        // Get all the containers
-        var allContainers: [CNContainer] = []
-        do {
-            allContainers = try contactStore.containersMatchingPredicate(nil)
-        } catch {
-            print("Error fetching containers")
-        }
-        
-        var results: [CNContact] = []
-        
-        // Iterate all containers and append their contacts to our results array
-        for container in allContainers {
-            let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
-            
-            do {
-                let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
-                results.appendContentsOf(containerResults)
-            } catch {
-                print("Error fetching results for container")
-            }
-        }
-        
-        return results
-    }()
+    
+    var delegate: AddContactDelegate?
+    var CM = ContactManager()
+    
+//    lazy var contacts: [CNContact] = {
+//        let contactStore = CNContactStore()
+//        let keysToFetch = [
+//            CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
+//            CNContactPhoneNumbersKey]
+//        
+//        // Get all the containers
+//        var allContainers: [CNContainer] = []
+//        do {
+//            allContainers = try contactStore.containersMatchingPredicate(nil)
+//        } catch {
+//            print("Error fetching containers")
+//        }
+//        
+//        var results: [CNContact] = []
+//        
+//        // Iterate all containers and append their contacts to our results array
+//        for container in allContainers {
+//            let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
+//            
+//            do {
+//                let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
+//                results.appendContentsOf(containerResults)
+//            } catch {
+//                print("Error fetching results for container")
+//            }
+//        }
+//        
+//        return results
+//    }()
     
     var ppl = [Person]()
     var peopleSelected = [Person]()
@@ -58,13 +66,13 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func loadContacts(){
-        for c in contacts{
+        for c in CM.contacts{
             let first = c.givenName
             let last = c.familyName
             
             let person = Person(fName: first, lName: last)
             
-            person.selected = true
+            //person.selected = true
             
             for pn in c.phoneNumbers{
                 let type = CNLabeledValue.localizedStringForLabel(pn.label)
@@ -113,17 +121,8 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
             }
         }
         print("\(peopleSelected.count) people added")
+        delegate?.addToContacts(peopleSelected)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

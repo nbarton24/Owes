@@ -9,11 +9,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddPersonTVDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddPersonTVDelegate, AddContactDelegate {
 
     @IBOutlet weak var contactTableView: UITableView!
     
     var vals = [2,3]
+    var peopleOnBill = [Person]()
+    var names = [String:Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vals.count
+        return peopleOnBill.count
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //let cell = AddPersonTableViewCell()
@@ -55,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = contactTableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath)
         
-        c.textLabel?.text = "Hello \(vals[indexPath.row])"
+        c.textLabel?.text = "Hello \(peopleOnBill[indexPath.row].name)"
         
         return c
     }
@@ -63,7 +65,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func addContacts(){
         print("Adding contacts")
         let acVC = AddContactViewController()
+        acVC.delegate = self
         self.presentViewController(acVC, animated: true, completion: nil)
+    }
+    
+    func addToContacts(people: [Person]){
+        for p in people{
+            //print("You added \(p.name)")
+            
+            if names[p.name] != nil{
+                print("\(p.name) already exists")
+            }else{
+                peopleOnBill.append(p)
+                names.updateValue(1, forKey: p.name)
+            }
+        }
+        self.contactTableView.reloadData()
     }
     
     
