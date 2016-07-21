@@ -9,9 +9,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddPersonTVDelegate {
 
     @IBOutlet weak var contactTableView: UITableView!
+    
+    var vals = [2,3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +25,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func addValue(value: Int) {
+        vals.append(value)
+        print("\(vals.count)")
+        self.contactTableView.reloadData()
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return vals.count
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //let cell = AddPersonTableViewCell()
         let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
+        cell.delegate = self
         return cell
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -45,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = contactTableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath)
         
-        c.textLabel?.text = "Hello"
+        c.textLabel?.text = "Hello \(vals[indexPath.row])"
         
         return c
     }

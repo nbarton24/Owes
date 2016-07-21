@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol AddPersonTVDelegate {
+    func addValue(value: Int)
+}
+
 class AddPersonTableViewCell: UITableViewCell {
 
+    var delegate: AddPersonTVDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
@@ -19,6 +26,11 @@ class AddPersonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func buttonPressed(sender: AnyObject) {
+        print("Button pressed")
+        delegate?.addValue(35)
+        print("Still Here")
     }
     
 }
