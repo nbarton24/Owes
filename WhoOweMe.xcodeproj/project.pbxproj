@@ -12,6 +12,8 @@
 		CB909FFB1D3977B800879608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB909FF91D3977B800879608 /* Main.storyboard */; };
 		CB909FFD1D3977B800879608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB909FFC1D3977B800879608 /* Assets.xcassets */; };
 		CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB909FFE1D3977B800879608 /* LaunchScreen.storyboard */; };
+		CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */; };
+		CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		CB909FFC1D3977B800879608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB909FFF1D3977B800879608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB90A0011D3977B800879608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPersonTableViewCell.swift; path = ../AddPersonTableViewCell.swift; sourceTree = "<group>"; };
+		CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPersonTableViewCell.xib; path = ../AddPersonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		CB909FF41D3977B800879608 /* WhoOweMe */ = {
 			isa = PBXGroup;
 			children = (
+				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
+				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
 				CB909FF51D3977B800879608 /* AppDelegate.swift */,
 				CB909FF71D3977B800879608 /* ViewController.swift */,
 				CB909FF91D3977B800879608 /* Main.storyboard */,
@@ -124,6 +130,7 @@
 			files = (
 				CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */,
 				CB909FFD1D3977B800879608 /* Assets.xcassets in Resources */,
+				CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */,
 				CB909FFB1D3977B800879608 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +144,7 @@
 			files = (
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,
 				CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */,
+				CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +294,7 @@
 				CB90A0061D3977B800879608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
