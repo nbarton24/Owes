@@ -11,10 +11,11 @@ import UIKit
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var contactsTable: UITableView!
-    
+    var contacts = ["Nick Barton","Not Nick"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contactsTable.registerNib(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "Contact")
         // Do any additional setup after loading the view.
     }
     
@@ -24,17 +25,23 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contacts.count
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = contactsTable.dequeueReusableCellWithIdentifier("Contact", forIndexPath: indexPath)
-        let cell = UITableViewCell()
+        let cell = contactsTable.dequeueReusableCellWithIdentifier("Contact", forIndexPath: indexPath) as! ContactTableViewCell
+        
+        cell.nameLabel.text = contacts[indexPath.row]
+        cell.phoneLabel.text = "802-022-2234"
+        
         return cell
     }
     
+    @IBAction func returnContacts(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
