@@ -14,6 +14,8 @@
 		CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB909FFE1D3977B800879608 /* LaunchScreen.storyboard */; };
 		CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */; };
 		CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */; };
+		CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */; };
+		CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		CB90A0011D3977B800879608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPersonTableViewCell.swift; path = ../AddPersonTableViewCell.swift; sourceTree = "<group>"; };
 		CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPersonTableViewCell.xib; path = ../AddPersonTableViewCell.xib; sourceTree = "<group>"; };
+		CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				CB909FF51D3977B800879608 /* AppDelegate.swift */,
 				CB909FF71D3977B800879608 /* ViewController.swift */,
 				CB909FF91D3977B800879608 /* Main.storyboard */,
+				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
+				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
 				CB909FFC1D3977B800879608 /* Assets.xcassets */,
 				CB909FFE1D3977B800879608 /* LaunchScreen.storyboard */,
 				CB90A0011D3977B800879608 /* Info.plist */,
@@ -129,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */,
+				CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */,
 				CB909FFD1D3977B800879608 /* Assets.xcassets in Resources */,
 				CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */,
 				CB909FFB1D3977B800879608 /* Main.storyboard in Resources */,
@@ -142,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,
 				CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */,
 				CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */,

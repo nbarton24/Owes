@@ -27,9 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func addValue(value: Int) {
-        vals.append(value)
-        print("\(vals.count)")
-        self.contactTableView.reloadData()
+        addContacts()
+        //vals.append(value)
+        //print("\(vals.count)")
+        //self.contactTableView.reloadData()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -48,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let height = AddPersonTableViewCell().frame.height
         return height
     }
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //code
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,6 +58,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         c.textLabel?.text = "Hello \(vals[indexPath.row])"
         
         return c
+    }
+    
+    func addContacts(){
+        print("Adding contacts")
+        let acVC = AddContactViewController()
+        self.presentViewController(acVC, animated: true, completion: nil)
     }
     
     

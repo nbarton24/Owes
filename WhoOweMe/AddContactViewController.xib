@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddContactViewController" customModule="WhoOweMe" customModuleProvider="target">
+            <connections>
+                <outlet property="contactsTable" destination="AkG-c2-IcZ" id="2Lz-uA-gUU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts To Join You On This Bill" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGD-2C-Zxc">
+                    <rect key="frame" x="138" y="8" width="324" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="yKi-2v-FWb"/>
+                        <constraint firstAttribute="width" constant="324" id="zOx-Ca-80I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkG-c2-IcZ">
+                    <rect key="frame" x="29" y="52" width="541" height="502"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Q8C-1R-iog"/>
+                        <outlet property="delegate" destination="-1" id="i45-9U-3RH"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PC-Ua-IEL">
+                    <rect key="frame" x="277" y="562" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GrF-Jb-Hj3"/>
+                        <constraint firstAttribute="width" constant="46" id="scq-zn-u9a"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6PC-Ua-IEL" firstAttribute="top" secondItem="AkG-c2-IcZ" secondAttribute="bottom" constant="8" id="59v-KW-bcv"/>
+                <constraint firstItem="HGD-2C-Zxc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="A2m-wr-zAw"/>
+                <constraint firstAttribute="bottom" secondItem="6PC-Ua-IEL" secondAttribute="bottom" constant="8" id="EQn-Ul-yc2"/>
+                <constraint firstAttribute="trailing" secondItem="AkG-c2-IcZ" secondAttribute="trailing" constant="30" id="Gmf-2s-P7m"/>
+                <constraint firstItem="6PC-Ua-IEL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vit-4u-gW4"/>
+                <constraint firstItem="HGD-2C-Zxc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="fqv-aF-CTB"/>
+                <constraint firstItem="AkG-c2-IcZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="yek-eh-JXy"/>
+                <constraint firstItem="AkG-c2-IcZ" firstAttribute="top" secondItem="HGD-2C-Zxc" secondAttribute="bottom" constant="8" id="zb9-Yv-OgB"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
