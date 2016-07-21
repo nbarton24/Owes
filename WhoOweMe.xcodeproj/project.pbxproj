@@ -18,6 +18,8 @@
 		CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */; };
 		CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */; };
 		CBEFCF8B1D41540700ACF9EA /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */; };
+		CBEFCF8D1D4161E400ACF9EA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF8C1D4161E400ACF9EA /* Person.swift */; };
+		CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
 		CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		CBEFCF8C1D4161E400ACF9EA /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
+		CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,20 +70,46 @@
 		CB909FF41D3977B800879608 /* WhoOweMe */ = {
 			isa = PBXGroup;
 			children = (
-				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
-				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
 				CB909FF51D3977B800879608 /* AppDelegate.swift */,
 				CB909FF71D3977B800879608 /* ViewController.swift */,
 				CB909FF91D3977B800879608 /* Main.storyboard */,
-				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
-				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
-				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
-				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
+				CBEFCF901D41620B00ACF9EA /* Control */,
+				CBEFCF8F1D41620500ACF9EA /* View */,
+				CBEFCF8E1D4161FD00ACF9EA /* Model */,
 				CB909FFC1D3977B800879608 /* Assets.xcassets */,
 				CB909FFE1D3977B800879608 /* LaunchScreen.storyboard */,
 				CB90A0011D3977B800879608 /* Info.plist */,
 			);
 			path = WhoOweMe;
+			sourceTree = "<group>";
+		};
+		CBEFCF8E1D4161FD00ACF9EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFCF8C1D4161E400ACF9EA /* Person.swift */,
+				CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CBEFCF8F1D41620500ACF9EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
+				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
+				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CBEFCF901D41620B00ACF9EA /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
+				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
+				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
+			);
+			name = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEFCF8D1D4161E400ACF9EA /* Person.swift in Sources */,
+				CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */,
 				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,
 				CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */,
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,

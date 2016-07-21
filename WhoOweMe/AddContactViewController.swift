@@ -7,11 +7,41 @@
 //
 
 import UIKit
+import ContactsUI
 
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var contactsTable: UITableView!
-    var contacts = ["Nick Barton","Not Nick"]
+    lazy var contacts: [CNContact] = {
+        let contactStore = CNContactStore()
+        let keysToFetch = [
+            CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
+            CNContactPhoneNumbersKey]
+        
+        // Get all the containers
+        var allContainers: [CNContainer] = []
+        do {
+            allContainers = try contactStore.containersMatchingPredicate(nil)
+        } catch {
+            print("Error fetching containers")
+        }
+        
+        var results: [CNContact] = []
+        
+        // Iterate all containers and append their contacts to our results array
+        for container in allContainers {
+            let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
+            
+            do {
+                let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
+                results.appendContentsOf(containerResults)
+            } catch {
+                print("Error fetching results for container")
+            }
+        }
+        
+        return results
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +63,14 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = contactsTable.dequeueReusableCellWithIdentifier("Contact", forIndexPath: indexPath) as! ContactTableViewCell
         
-        cell.nameLabel.text = contacts[indexPath.row]
-        cell.phoneLabel.text = "802-022-2234"
+        //This currently only handles when phone numbers are 10 digits
+        cell.nameLabel.text = "\(contacts[indexPath.row].givenName) \(contacts[indexPath.row].familyName)"
+        let number = String((contacts[indexPath.row].phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits")!)
+        //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
+        let first3 = number.substringWithRange(Range(number.startIndex..<number.startIndex.advancedBy(3)))
+        let next3 = number.substringWithRange(Range(number.startIndex.advancedBy(3)..<number.startIndex.advancedBy(6)))
+        let last4 = number.substringWithRange(Range(number.startIndex.advancedBy(6)..<number.startIndex.advancedBy(10)))
+        cell.phoneLabel.text = "(\(first3))-\(next3)-\(last4)"
         
         return cell
     }
