@@ -10,16 +10,16 @@ import Foundation
 
 class PhoneNumber {
     
-    private var _type:String?
-    private var _num:Int?
+    var type:String?
+    var num:String?
     
     init(){
-        self._num = 8888888888
-        self._type = "Home"
+        self.num = "8888888888"
+        self.type = "Home"
     }
-    init(tp:String, num:Int){
-        self._num = num
-        self._type = tp
+    init(tp:String, num:String){
+        self.num = num
+        self.type = tp
     }
     
     

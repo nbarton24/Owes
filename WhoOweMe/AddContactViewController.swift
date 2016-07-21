@@ -43,14 +43,18 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         return results
     }()
     
-    var ppl = [Person]?()
-    var peopleSelected = [Person]?()
+    var ppl = [Person]()
+    var peopleSelected = [Person]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadContacts()
         contactsTable.registerNib(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "Contact")
         
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
     func loadContacts(){
@@ -60,22 +64,18 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
             
             let person = Person(fName: first, lName: last)
             
+            person.selected = true
+            
             for pn in c.phoneNumbers{
                 let type = CNLabeledValue.localizedStringForLabel(pn.label)
-                //let num = Int((pn.value as! CNPhoneNumber).valueForKey("digits"))
-                //let phone = PhoneNumber(tp: type, num: num)
+                let num = String((pn.value as! CNPhoneNumber).valueForKey("digits")!)
+                let phone = PhoneNumber(tp: type, num: num)
+                
+                //ADD PHONE NUMBER TO PERSON OBJECT
+                person.phoneNums.append(phone)
             }
             
-            //This currently only handles when phone numbers are 10 digits
-//            cell.nameLabel.text = "\(contacts[indexPath.row].givenName) \(contacts[indexPath.row].familyName)"
-//            let number = String((contacts[indexPath.row].phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits")!)
-//            //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
-//            let first3 = number.substringWithRange(Range(number.startIndex..<number.startIndex.advancedBy(3)))
-//            let next3 = number.substringWithRange(Range(number.startIndex.advancedBy(3)..<number.startIndex.advancedBy(6)))
-//            let last4 = number.substringWithRange(Range(number.startIndex.advancedBy(6)..<number.startIndex.advancedBy(10)))
-//            cell.phoneLabel.text = "(\(first3))-\(next3)-\(last4)"
-            
-            
+            ppl.append(person)
         }
     }
     
@@ -85,7 +85,7 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return ppl.count
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -94,18 +94,25 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         let cell = contactsTable.dequeueReusableCellWithIdentifier("Contact", forIndexPath: indexPath) as! ContactTableViewCell
         
         //This currently only handles when phone numbers are 10 digits
-        cell.nameLabel.text = "\(contacts[indexPath.row].givenName) \(contacts[indexPath.row].familyName)"
-        let number = String((contacts[indexPath.row].phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits")!)
+        cell.person = ppl[indexPath.row]
+        cell.nameLabel.text = ppl[indexPath.row].name
+        let number = ppl[indexPath.row].phoneNums[0].num
         //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
-        let first3 = number.substringWithRange(Range(number.startIndex..<number.startIndex.advancedBy(3)))
-        let next3 = number.substringWithRange(Range(number.startIndex.advancedBy(3)..<number.startIndex.advancedBy(6)))
-        let last4 = number.substringWithRange(Range(number.startIndex.advancedBy(6)..<number.startIndex.advancedBy(10)))
+        let first3 = number!.substringWithRange(Range(number!.startIndex..<number!.startIndex.advancedBy(3)))
+        let next3 = number!.substringWithRange(Range(number!.startIndex.advancedBy(3)..<number!.startIndex.advancedBy(6)))
+        let last4 = number!.substringWithRange(Range(number!.startIndex.advancedBy(6)..<number!.startIndex.advancedBy(10)))
         cell.phoneLabel.text = "(\(first3))-\(next3)-\(last4)"
         
         return cell
     }
     
     @IBAction func returnContacts(sender: AnyObject) {
+        for contact in ppl{
+            if contact.selected == true {
+                peopleSelected.append(contact)
+            }
+        }
+        print("\(peopleSelected.count) people added")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

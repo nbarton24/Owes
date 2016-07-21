@@ -10,10 +10,11 @@ import Foundation
 
 class Person {
     
-    private var _firstName:String?
-    private var _lastName:String?
-    private var _phoneNums = [PhoneNumber]()
-    private var _items = [Item]()
+    private var _firstName:String
+    private var _lastName:String
+    var phoneNums = [PhoneNumber]()
+    var items = [Item]()
+    var selected = false
     
     init(){
         self._firstName = "No"
@@ -23,6 +24,10 @@ class Person {
     init(fName:String,lName:String){
         self._firstName = fName
         self._lastName = lName
+    }
+    
+    var name:String {
+        return "\(_firstName) \(_lastName)"
     }
     
 }
