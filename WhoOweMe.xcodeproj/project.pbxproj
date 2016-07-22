@@ -76,8 +76,8 @@
 			children = (
 				CB909FF51D3977B800879608 /* AppDelegate.swift */,
 				CB909FF91D3977B800879608 /* Main.storyboard */,
-				CBEFCF901D41620B00ACF9EA /* Control */,
 				CBEFCF8F1D41620500ACF9EA /* View */,
+				CBEFCF901D41620B00ACF9EA /* Control */,
 				CBEFCF8E1D4161FD00ACF9EA /* Model */,
 				CB909FFC1D3977B800879608 /* Assets.xcassets */,
 				CB909FFE1D3977B800879608 /* LaunchScreen.storyboard */,

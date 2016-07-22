@@ -10,9 +10,11 @@ import Foundation
 
 class PhoneNumber {
     
+    // MARK - Variables
     private var _type:String
     private var _num:String
     
+    // MARK - Initializers
     init(){
         self._num = "8888888888"
         self._type = "Home"
@@ -22,6 +24,7 @@ class PhoneNumber {
         self._type = tp
     }
     
+    // MARK - Computed Variables
     var formattedValue:String {
         get {
             switch Int((_num.characters.count)){

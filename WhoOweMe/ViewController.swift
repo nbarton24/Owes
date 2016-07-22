@@ -11,12 +11,14 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddPersonTVDelegate, AddContactDelegate {
 
+    // MARK - Outlets
     @IBOutlet weak var contactTableView: UITableView!
     
-    var vals = [2,3]
+    // MARK - Variables
     var peopleOnBill = [Person]()
     var names = [String:Int]()
     
+    // MARK - View and System Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contactTableView.registerNib(UINib(nibName: "AddPersonTableViewCell", bundle:nil), forCellReuseIdentifier: "AddCell")
@@ -28,13 +30,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK - My Functions
     func addValue(value: Int) {
         addContacts()
-        //vals.append(value)
-        //print("\(vals.count)")
-        //self.contactTableView.reloadData()
     }
 
+    func addContacts(){
+        print("Adding contacts")
+        let acVC = AddContactViewController()
+        acVC.delegate = self
+        self.presentViewController(acVC, animated: true, completion: nil)
+    }
+    
+    func addToContacts(people: [Person]){
+        for p in people{
+            //print("You added \(p.name)")
+            
+            if names[p.fullName] != nil{
+                print("\(p.fullName) already exists")
+            }else{
+                peopleOnBill.append(p)
+                names.updateValue(1, forKey: p.fullName)
+            }
+        }
+        self.contactTableView.reloadData()
+    }
+    
+    //MARK - TableView functions
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -57,32 +79,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = contactTableView.dequeueReusableCellWithIdentifier("MainCell", forIndexPath: indexPath)
         
-        c.textLabel?.text = "Hello \(peopleOnBill[indexPath.row].name)"
+        c.textLabel?.text = "Hello \(peopleOnBill[indexPath.row].fullName)"
         
         return c
     }
-    
-    func addContacts(){
-        print("Adding contacts")
-        let acVC = AddContactViewController()
-        acVC.delegate = self
-        self.presentViewController(acVC, animated: true, completion: nil)
-    }
-    
-    func addToContacts(people: [Person]){
-        for p in people{
-            //print("You added \(p.name)")
-            
-            if names[p.name] != nil{
-                print("\(p.name) already exists")
-            }else{
-                peopleOnBill.append(p)
-                names.updateValue(1, forKey: p.name)
-            }
-        }
-        self.contactTableView.reloadData()
-    }
-    
     
 }
 

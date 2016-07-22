@@ -14,12 +14,14 @@ protocol AddPersonTVDelegate {
 
 class AddPersonTableViewCell: UITableViewCell {
 
+    // MARK - Outlets
+    
+    // MARK - Variables
     var delegate: AddPersonTVDelegate?
     
+    // MARK - View and System Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -27,10 +29,11 @@ class AddPersonTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // MARK - Actions
+    //When the add button is pressed
     @IBAction func buttonPressed(sender: AnyObject) {
-        print("Button pressed")
         delegate?.addValue(35)
-        print("Still Here")
     }
     
 }

@@ -15,10 +15,10 @@ protocol AddContactDelegate {
 
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
-    //Outlets
+    // MARK - Outlets
     @IBOutlet weak var contactsTable: UITableView!
     
-    //Variables
+    // MARK - Variables
     var delegate: AddContactDelegate?
     var CM = ContactManager()
     var ppl = [Person]()
@@ -51,7 +51,7 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         
         //This currently only handles when phone numbers are 10 digits
         cell.person = ppl[indexPath.row]
-        cell.nameLabel.text = ppl[indexPath.row].name
+        cell.nameLabel.text = ppl[indexPath.row].fullName
         let number = ppl[indexPath.row].phoneNums[0].formattedValue
         //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
 //        let first3 = number!.substringWithRange(Range(number!.startIndex..<number!.startIndex.advancedBy(3)))

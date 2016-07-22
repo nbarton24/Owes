@@ -14,6 +14,8 @@ enum Currency:String{
 
 class Item {
     
+    // MARK - Variables
+    
     private var _itemName:String
     private var _itemPrice:Double
     private var _currency = Currency.USD
@@ -29,6 +31,7 @@ class Item {
         
     }
     
+    // MARK - Computed Variables
     var name:String{
         get{
             return _itemName
