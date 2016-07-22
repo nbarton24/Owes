@@ -10,7 +10,7 @@ import Foundation
 
 class Person {
     
-    // MARK - Variables
+// MARK - Variables
     private var _firstName:String
     private var _lastName:String
     
@@ -25,7 +25,7 @@ class Person {
     
     var selected = false
     
-    // MARK - Initializers
+// MARK - Initializers
     init(){
         self._firstName = "No"
         self._lastName = "Name"
@@ -36,7 +36,7 @@ class Person {
         self._lastName = lName
     }
     
-    // MARK - Computed Variables
+// MARK - Computed Variables
     var fullName:String {
         return "\(_firstName) \(_lastName)"
     }
@@ -59,7 +59,7 @@ class Person {
         }
     }
     
-    // MARK - Functions
+// MARK - Functions
     func calcTotal() -> Double {
         
         return 0

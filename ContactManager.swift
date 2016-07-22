@@ -11,7 +11,7 @@ import ContactsUI
 
 class ContactManager {
     
-    // MARK - Variables
+// MARK - Variables
     lazy var contacts: [CNContact] = {
         let contactStore = CNContactStore()
         let keysToFetch = [
@@ -43,7 +43,7 @@ class ContactManager {
         return results
     }()
     
-    // MARK - Functions
+// MARK - Functions
     func loadContacts() -> [Person]{
         var people = [Person]()
         for c in contacts{

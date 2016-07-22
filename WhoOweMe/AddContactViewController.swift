@@ -15,16 +15,16 @@ protocol AddContactDelegate {
 
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
-    // MARK - Outlets
+// MARK - Outlets
     @IBOutlet weak var contactsTable: UITableView!
     
-    // MARK - Variables
+// MARK - Variables
     var delegate: AddContactDelegate?
     var CM = ContactManager()
     var ppl = [Person]()
     var peopleSelected = [Person]()
     
-    // MARK - System Methods
+// MARK - System Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         ppl.appendContentsOf(CM.loadContacts())
@@ -39,7 +39,8 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
     }
     
-    // MARK - TableView Methods
+// MARK - TableView Methods
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ppl.count
     }
@@ -53,16 +54,12 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         cell.person = ppl[indexPath.row]
         cell.nameLabel.text = ppl[indexPath.row].fullName
         let number = ppl[indexPath.row].phoneNums[0].formattedValue
-        //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
-//        let first3 = number!.substringWithRange(Range(number!.startIndex..<number!.startIndex.advancedBy(3)))
-//        let next3 = number!.substringWithRange(Range(number!.startIndex.advancedBy(3)..<number!.startIndex.advancedBy(6)))
-//        let last4 = number!.substringWithRange(Range(number!.startIndex.advancedBy(6)..<number!.startIndex.advancedBy(10)))
         cell.phoneLabel.text = "\(number)"
         
         return cell
     }
     
-    // MARK - UI Response Actions
+// MARK - UI Response Actions
     
     //Done button selected.
     @IBAction func returnContacts(sender: AnyObject) {
