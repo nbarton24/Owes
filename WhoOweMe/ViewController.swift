@@ -89,5 +89,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return c
     }
     
+// MARK - Actions
+    
+    @IBAction func resetSystem(sender: AnyObject) {
+        
+        let refreshAlert = UIAlertController(title: "Reset This Form?", message: "All data will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) in
+                self.peopleOnBill.removeAll()
+                self.names.removeAll()
+                self.contactTableView.reloadData()
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    
 }
 
