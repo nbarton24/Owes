@@ -77,6 +77,9 @@
                                 <color key="backgroundColor" red="0.45711388399436959" green="1" blue="0.62339875081701579" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="splitBill:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m2e-d9-Imr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pia-s1-PPJ">
                                 <rect key="frame" x="20" y="533" width="111" height="47"/>

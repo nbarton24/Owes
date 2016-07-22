@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB056AD31D42A94200815473 /* SplitItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB056AD11D42A94200815473 /* SplitItemsViewController.swift */; };
+		CB056AD41D42A94200815473 /* SplitItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB056AD21D42A94200815473 /* SplitItemsViewController.xib */; };
 		CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB909FF51D3977B800879608 /* AppDelegate.swift */; };
 		CB909FF81D3977B800879608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB909FF71D3977B800879608 /* ViewController.swift */; };
 		CB909FFB1D3977B800879608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB909FF91D3977B800879608 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB056AD11D42A94200815473 /* SplitItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitItemsViewController.swift; sourceTree = "<group>"; };
+		CB056AD21D42A94200815473 /* SplitItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitItemsViewController.xib; sourceTree = "<group>"; };
 		CB909FF21D3977B800879608 /* WhoOweMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoOweMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB909FF51D3977B800879608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB909FF71D3977B800879608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
 				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
 				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
+				CB056AD21D42A94200815473 /* SplitItemsViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -110,10 +115,11 @@
 		CBEFCF901D41620B00ACF9EA /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				CB909FF71D3977B800879608 /* ViewController.swift */,
 				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
 				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
 				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
+				CB056AD11D42A94200815473 /* SplitItemsViewController.swift */,
+				CB909FF71D3977B800879608 /* ViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB056AD41D42A94200815473 /* SplitItemsViewController.xib in Resources */,
 				CBEFCF8B1D41540700ACF9EA /* ContactTableViewCell.xib in Resources */,
 				CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */,
 				CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */,
@@ -192,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB056AD31D42A94200815473 /* SplitItemsViewController.swift in Sources */,
 				CBEFCF8D1D4161E400ACF9EA /* Person.swift in Sources */,
 				CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */,
 				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,

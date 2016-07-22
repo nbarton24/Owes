@@ -108,5 +108,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
+    @IBAction func splitBill(sender: AnyObject) {
+        
+        if peopleOnBill.count > 0 {
+            let splitBillView = SplitItemsViewController()
+            splitBillView.people = peopleOnBill
+            presentViewController(splitBillView, animated: true, completion: nil)
+        }
+        else{
+            let alert = UIAlertController(title: "Select Contacts", message: "You must add contacts to the bill before proceeding", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
 }
 
