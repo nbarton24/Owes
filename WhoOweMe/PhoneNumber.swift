@@ -13,10 +13,11 @@ class PhoneNumber {
 // MARK - Variables
     private var _type:String
     private var _num:String
+    var defaultNum = "1234567890"
     
 // MARK - Initializers
     init(){
-        self._num = "8888888888"
+        self._num = defaultNum
         self._type = "Home"
     }
     init(tp:String, num:String){
@@ -25,6 +26,23 @@ class PhoneNumber {
     }
     
 // MARK - Computed Variables
+    var number:String{
+        get{
+            return _num
+        }
+        set{
+            if number.characters.count > 0 {
+                _num = number
+            }
+        }
+    }
+    
+    var type:String{
+        get{
+            return _type
+        }
+    }
+    
     var formattedValue:String {
         get {
             switch Int((_num.characters.count)){
