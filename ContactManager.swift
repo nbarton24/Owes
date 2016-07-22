@@ -42,6 +42,27 @@ class ContactManager {
         return results
     }()
     
+    func loadContacts() -> [Person]{
+        var people = [Person]()
+        for c in contacts{
+            let first = c.givenName
+            let last = c.familyName
+            
+            let person = Person(fName: first, lName: last)
+            
+            for pn in c.phoneNumbers{
+                let type = CNLabeledValue.localizedStringForLabel(pn.label)
+                let num = String((pn.value as! CNPhoneNumber).valueForKey("digits")!)
+                let phone = PhoneNumber(tp: type, num: num)
+                
+                //ADD PHONE NUMBER TO PERSON OBJECT
+                person.phoneNums.append(phone)
+            }
+            people.append(person)
+        }
+        return people
+    }
+
     
     
 }

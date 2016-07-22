@@ -15,83 +15,31 @@ protocol AddContactDelegate {
 
 class AddContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
+    //Outlets
     @IBOutlet weak var contactsTable: UITableView!
     
+    //Variables
     var delegate: AddContactDelegate?
     var CM = ContactManager()
-    
-//    lazy var contacts: [CNContact] = {
-//        let contactStore = CNContactStore()
-//        let keysToFetch = [
-//            CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
-//            CNContactPhoneNumbersKey]
-//        
-//        // Get all the containers
-//        var allContainers: [CNContainer] = []
-//        do {
-//            allContainers = try contactStore.containersMatchingPredicate(nil)
-//        } catch {
-//            print("Error fetching containers")
-//        }
-//        
-//        var results: [CNContact] = []
-//        
-//        // Iterate all containers and append their contacts to our results array
-//        for container in allContainers {
-//            let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
-//            
-//            do {
-//                let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
-//                results.appendContentsOf(containerResults)
-//            } catch {
-//                print("Error fetching results for container")
-//            }
-//        }
-//        
-//        return results
-//    }()
-    
     var ppl = [Person]()
     var peopleSelected = [Person]()
     
+    // MARK - System Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadContacts()
+        ppl.appendContentsOf(CM.loadContacts())
         contactsTable.registerNib(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "Contact")
         
-        // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         
     }
-    
-    func loadContacts(){
-        for c in CM.contacts{
-            let first = c.givenName
-            let last = c.familyName
-            
-            let person = Person(fName: first, lName: last)
-            
-            //person.selected = true
-            
-            for pn in c.phoneNumbers{
-                let type = CNLabeledValue.localizedStringForLabel(pn.label)
-                let num = String((pn.value as! CNPhoneNumber).valueForKey("digits")!)
-                let phone = PhoneNumber(tp: type, num: num)
-                
-                //ADD PHONE NUMBER TO PERSON OBJECT
-                person.phoneNums.append(phone)
-            }
-            
-            ppl.append(person)
-        }
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // MARK - TableView Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ppl.count
     }
@@ -104,23 +52,25 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         //This currently only handles when phone numbers are 10 digits
         cell.person = ppl[indexPath.row]
         cell.nameLabel.text = ppl[indexPath.row].name
-        let number = ppl[indexPath.row].phoneNums[0].num
+        let number = ppl[indexPath.row].phoneNums[0].formattedValue
         //let type :String  =  CNLabeledValue.localizedStringForLabel(contacts[indexPath.row].phoneNumbers[0].label)
-        let first3 = number!.substringWithRange(Range(number!.startIndex..<number!.startIndex.advancedBy(3)))
-        let next3 = number!.substringWithRange(Range(number!.startIndex.advancedBy(3)..<number!.startIndex.advancedBy(6)))
-        let last4 = number!.substringWithRange(Range(number!.startIndex.advancedBy(6)..<number!.startIndex.advancedBy(10)))
-        cell.phoneLabel.text = "(\(first3))-\(next3)-\(last4)"
+//        let first3 = number!.substringWithRange(Range(number!.startIndex..<number!.startIndex.advancedBy(3)))
+//        let next3 = number!.substringWithRange(Range(number!.startIndex.advancedBy(3)..<number!.startIndex.advancedBy(6)))
+//        let last4 = number!.substringWithRange(Range(number!.startIndex.advancedBy(6)..<number!.startIndex.advancedBy(10)))
+        cell.phoneLabel.text = "\(number)"
         
         return cell
     }
     
+    // MARK - UI Response Actions
+    
+    //Done button selected.
     @IBAction func returnContacts(sender: AnyObject) {
         for contact in ppl{
             if contact.selected == true {
                 peopleSelected.append(contact)
             }
         }
-        print("\(peopleSelected.count) people added")
         delegate?.addToContacts(peopleSelected)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
