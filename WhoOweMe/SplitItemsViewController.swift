@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SplitItemsViewController: UIViewController {
+class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var people = [Person]()
+    
+    @IBOutlet weak var peopleTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,21 @@ class SplitItemsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return people.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        <#code#>
+    }
     /*
     // MARK: - Navigation
 
