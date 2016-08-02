@@ -17,6 +17,10 @@
 		CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */; };
 		CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */; };
 		CBAAC54F1D4197D2009A43E0 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAAC54E1D4197D2009A43E0 /* ContactManager.swift */; };
+		CBB1B0FC1D4FC737002B1C2A /* AddEditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1B0FA1D4FC737002B1C2A /* AddEditItemViewController.swift */; };
+		CBB1B0FD1D4FC737002B1C2A /* AddEditItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB1B0FB1D4FC737002B1C2A /* AddEditItemViewController.xib */; };
+		CBB1B1041D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1B1021D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift */; };
+		CBB1B1051D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB1B1031D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib */; };
 		CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */; };
 		CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */; };
 		CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */; };
@@ -39,6 +43,10 @@
 		CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPersonTableViewCell.swift; path = ../AddPersonTableViewCell.swift; sourceTree = "<group>"; };
 		CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPersonTableViewCell.xib; path = ../AddPersonTableViewCell.xib; sourceTree = "<group>"; };
 		CBAAC54E1D4197D2009A43E0 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactManager.swift; path = ../ContactManager.swift; sourceTree = "<group>"; };
+		CBB1B0FA1D4FC737002B1C2A /* AddEditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEditItemViewController.swift; path = ../AddEditItemViewController.swift; sourceTree = "<group>"; };
+		CBB1B0FB1D4FC737002B1C2A /* AddEditItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddEditItemViewController.xib; path = ../AddEditItemViewController.xib; sourceTree = "<group>"; };
+		CBB1B1021D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemHeaderTableViewCell.swift; path = ../ItemHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CBB1B1031D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemHeaderTableViewCell.xib; path = ../ItemHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
 		CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				CBAAC54E1D4197D2009A43E0 /* ContactManager.swift */,
-				CBEFCF8C1D4161E400ACF9EA /* Person.swift */,
 				CBEFCF931D4164EF00ACF9EA /* Item.swift */,
+				CBEFCF8C1D4161E400ACF9EA /* Person.swift */,
 				CBEFCF911D41637400ACF9EA /* PhoneNumber.swift */,
 			);
 			name = Model;
@@ -105,8 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
+				CBB1B0FB1D4FC737002B1C2A /* AddEditItemViewController.xib */,
 				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
 				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
+				CBB1B1031D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib */,
 				CB056AD21D42A94200815473 /* SplitItemsViewController.xib */,
 			);
 			name = View;
@@ -116,8 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
+				CBB1B0FA1D4FC737002B1C2A /* AddEditItemViewController.swift */,
 				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
 				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
+				CBB1B1021D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift */,
 				CB056AD11D42A94200815473 /* SplitItemsViewController.swift */,
 				CB909FF71D3977B800879608 /* ViewController.swift */,
 			);
@@ -185,6 +197,8 @@
 				CB056AD41D42A94200815473 /* SplitItemsViewController.xib in Resources */,
 				CBEFCF8B1D41540700ACF9EA /* ContactTableViewCell.xib in Resources */,
 				CB90A0001D3977B800879608 /* LaunchScreen.storyboard in Resources */,
+				CBB1B1051D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib in Resources */,
+				CBB1B0FD1D4FC737002B1C2A /* AddEditItemViewController.xib in Resources */,
 				CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */,
 				CB909FFD1D3977B800879608 /* Assets.xcassets in Resources */,
 				CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */,
@@ -202,12 +216,14 @@
 				CB056AD31D42A94200815473 /* SplitItemsViewController.swift in Sources */,
 				CBEFCF8D1D4161E400ACF9EA /* Person.swift in Sources */,
 				CBEFCF921D41637400ACF9EA /* PhoneNumber.swift in Sources */,
+				CBB1B1041D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift in Sources */,
 				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,
 				CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */,
 				CBEFCF941D4164EF00ACF9EA /* Item.swift in Sources */,
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,
 				CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */,
 				CBAAC54F1D4197D2009A43E0 /* ContactManager.swift in Sources */,
+				CBB1B0FC1D4FC737002B1C2A /* AddEditItemViewController.swift in Sources */,
 				CB9BA17A1D4049F7009286E5 /* AddPersonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,10 +16,13 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.peopleTableView.registerNib(UINib(nibName: "ItemHeaderTableViewCell", bundle:nil), forCellReuseIdentifier: "PersonHeader")
         print("You're splitting this bill between:")
         for p in people {
             print(" -\(p.fullName)")
         }
+        
+        //peopleTableView.scrollEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -36,13 +39,30 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         return 1
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let v = peopleTableView.dequeueReusableCellWithIdentifier("PersonHeader") as! ItemHeaderTableViewCell
+//        v.personNameLabel.text = "Hello"
+//        
+//        return v
+//    }
+    
+//    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        return "Done"
+//    }
+
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return people[section].fullName
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "Hello \(people[indexPath.section].firstName)"
+        
+        return cell
     }
+    
+    
     /*
     // MARK: - Navigation
 
