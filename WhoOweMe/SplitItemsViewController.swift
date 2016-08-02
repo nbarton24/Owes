@@ -20,9 +20,11 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         self.peopleTableView.registerNib(UINib(nibName: "ItemHeaderTableViewCell", bundle:nil), forCellReuseIdentifier: "PersonHeader")
         self.peopleTableView.backgroundColor = UIColor.clearColor()
         print("You're splitting this bill between:")
-        let i = Item(item: "Temp", price: 8.99)
+        let i = Item(item: "Food", price: 8.99)
+        let i2 = Item(item: "Beer", price: 4.99)
         for p in people {
             p.items.insert(i, atIndex: 0)
+            p.items.insert(i2, atIndex: 0)
             print(" -\(p.fullName)")
         }
         
@@ -83,12 +85,8 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
             let newSubtotal = people[indexPath.section].calcTotal()
             print("New Subtotal: \(newSubtotal)")
             print("For index: \(indexPath.row)")
-            people[indexPath.section].items[indexPath.row].price = 12.00
+            people[indexPath.section].items[indexPath.row].price = newSubtotal
         }
-//        
-//        for i in people[indexPath.section].items{
-//            print("\(i.name) - \(i.price)")
-//        }
         
         cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
         return cell
