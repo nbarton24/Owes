@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ItemAddDelegate {
 
     var people = [Person]()
     
@@ -19,13 +19,12 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         self.peopleTableView.registerNib(UINib(nibName: "ItemTableViewCell",bundle: nil), forCellReuseIdentifier: "ItemCell")
         self.peopleTableView.registerNib(UINib(nibName: "ItemHeaderTableViewCell", bundle:nil), forCellReuseIdentifier: "PersonHeader")
         self.peopleTableView.backgroundColor = UIColor.clearColor()
-        print("You're splitting this bill between:")
         let i = Item(item: "Food", price: 8.99)
         let i2 = Item(item: "Beer", price: 4.99)
         for p in people {
             p.items.insert(i, atIndex: 0)
             p.items.insert(i2, atIndex: 0)
-            print(" -\(p.fullName)")
+            //print(" -\(p.fullName)")
         }
         
         //peopleTableView.scrollEnabled = false
@@ -47,6 +46,8 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = peopleTableView.dequeueReusableCellWithIdentifier("PersonHeader") as! ItemHeaderTableViewCell
+        v.delegate = self
+        v.section = section
         v.personNameLabel.text = "\(people[section].fullName)"
         
         return v
@@ -72,24 +73,24 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
-//        cell.textLabel?.text = "\(people[indexPath.section].items[indexPath.row].name)"
 
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemTableViewCell
         
         cell.itemName.text = people[indexPath.section].items[indexPath.row].name
         
         if(indexPath.row == (people[indexPath.section].items.count - 1)){
-            cell.contentView.backgroundColor = UIColor.brownColor()
-            cell.itemName?.textColor = UIColor.whiteColor()
             let newSubtotal = people[indexPath.section].calcTotal()
-            print("New Subtotal: \(newSubtotal)")
-            print("For index: \(indexPath.row)")
             people[indexPath.section].items[indexPath.row].price = newSubtotal
         }
         
         cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
         return cell
+    }
+    
+    func addItem(it: Item, s:Int) {
+        people[s].items.insert(it, atIndex: 0)
+        peopleTableView.reloadData()
+        
     }
 
 }

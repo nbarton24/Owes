@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 // MARK - My Functions
-    func addValue(value: Int) {
+    func addValue() {
         addContacts()
     }
 

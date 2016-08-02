@@ -8,12 +8,14 @@
 
 import UIKit
 
-protocol AddEditItemDelegate {
-    func addItem(i: Item)
-}
+//protocol AddEditItemDelegate {
+//    func addItem(i: Item)
+//}
 
 class AddEditItemViewController: UIViewController {
 
+    //var delegate:AddEditItemDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol ItemAddDelegate {
+    func addItem(it: Item, s:Int)
+}
+
 class ItemHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var personNameLabel: UILabel!
+    var delegate: ItemAddDelegate?
+    var section = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +31,7 @@ class ItemHeaderTableViewCell: UITableViewCell {
     
     @IBAction func addItem(sender: AnyObject) {
         print("added item")
+        let i = Item()
+        delegate?.addItem(i,s: section)
     }
 }

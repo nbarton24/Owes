@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddPersonTVDelegate {
-    func addValue(value: Int)
+    func addValue()
 }
 
 class AddPersonTableViewCell: UITableViewCell {
@@ -33,7 +33,7 @@ class AddPersonTableViewCell: UITableViewCell {
 // MARK - Actions
     //When the add button is pressed
     @IBAction func buttonPressed(sender: AnyObject) {
-        delegate?.addValue(35)
+        delegate?.addValue()
     }
     
 }
