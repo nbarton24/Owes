@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CB056AD31D42A94200815473 /* SplitItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB056AD11D42A94200815473 /* SplitItemsViewController.swift */; };
 		CB056AD41D42A94200815473 /* SplitItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB056AD21D42A94200815473 /* SplitItemsViewController.xib */; };
+		CB837BC81D5125F7003B117A /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB837BC61D5125F7003B117A /* ItemTableViewCell.swift */; };
+		CB837BC91D5125F7003B117A /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB837BC71D5125F7003B117A /* ItemTableViewCell.xib */; };
 		CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB909FF51D3977B800879608 /* AppDelegate.swift */; };
 		CB909FF81D3977B800879608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB909FF71D3977B800879608 /* ViewController.swift */; };
 		CB909FFB1D3977B800879608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB909FF91D3977B800879608 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		CB056AD11D42A94200815473 /* SplitItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitItemsViewController.swift; sourceTree = "<group>"; };
 		CB056AD21D42A94200815473 /* SplitItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitItemsViewController.xib; sourceTree = "<group>"; };
+		CB837BC61D5125F7003B117A /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = ../ItemTableViewCell.swift; sourceTree = "<group>"; };
+		CB837BC71D5125F7003B117A /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemTableViewCell.xib; path = ../ItemTableViewCell.xib; sourceTree = "<group>"; };
 		CB909FF21D3977B800879608 /* WhoOweMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoOweMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB909FF51D3977B800879608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB909FF71D3977B800879608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB837BCA1D51260A003B117A /* Cell Control */ = {
+			isa = PBXGroup;
+			children = (
+				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
+				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
+				CBB1B1021D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift */,
+				CB837BC61D5125F7003B117A /* ItemTableViewCell.swift */,
+			);
+			name = "Cell Control";
+			sourceTree = "<group>";
+		};
 		CB909FE91D3977B800879608 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +113,17 @@
 			path = WhoOweMe;
 			sourceTree = "<group>";
 		};
+		CBDB0A651D50F8020020E1C7 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
+				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
+				CBB1B1031D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib */,
+				CB837BC71D5125F7003B117A /* ItemTableViewCell.xib */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		CBEFCF8E1D4161FD00ACF9EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,11 +138,9 @@
 		CBEFCF8F1D41620500ACF9EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBDB0A651D50F8020020E1C7 /* Custom Cells */,
 				CBEFCF851D414FA100ACF9EA /* AddContactViewController.xib */,
 				CBB1B0FB1D4FC737002B1C2A /* AddEditItemViewController.xib */,
-				CB9BA1791D4049F7009286E5 /* AddPersonTableViewCell.xib */,
-				CBEFCF891D41540700ACF9EA /* ContactTableViewCell.xib */,
-				CBB1B1031D4FD83F002B1C2A /* ItemHeaderTableViewCell.xib */,
 				CB056AD21D42A94200815473 /* SplitItemsViewController.xib */,
 			);
 			name = View;
@@ -125,11 +149,9 @@
 		CBEFCF901D41620B00ACF9EA /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				CB837BCA1D51260A003B117A /* Cell Control */,
 				CBEFCF841D414FA100ACF9EA /* AddContactViewController.swift */,
 				CBB1B0FA1D4FC737002B1C2A /* AddEditItemViewController.swift */,
-				CB9BA1781D4049F7009286E5 /* AddPersonTableViewCell.swift */,
-				CBEFCF881D41540700ACF9EA /* ContactTableViewCell.swift */,
-				CBB1B1021D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift */,
 				CB056AD11D42A94200815473 /* SplitItemsViewController.swift */,
 				CB909FF71D3977B800879608 /* ViewController.swift */,
 			);
@@ -202,6 +224,7 @@
 				CBEFCF871D414FA100ACF9EA /* AddContactViewController.xib in Resources */,
 				CB909FFD1D3977B800879608 /* Assets.xcassets in Resources */,
 				CB9BA17B1D4049F7009286E5 /* AddPersonTableViewCell.xib in Resources */,
+				CB837BC91D5125F7003B117A /* ItemTableViewCell.xib in Resources */,
 				CB909FFB1D3977B800879608 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +242,7 @@
 				CBB1B1041D4FD83F002B1C2A /* ItemHeaderTableViewCell.swift in Sources */,
 				CBEFCF861D414FA100ACF9EA /* AddContactViewController.swift in Sources */,
 				CBEFCF8A1D41540700ACF9EA /* ContactTableViewCell.swift in Sources */,
+				CB837BC81D5125F7003B117A /* ItemTableViewCell.swift in Sources */,
 				CBEFCF941D4164EF00ACF9EA /* Item.swift in Sources */,
 				CB909FF81D3977B800879608 /* ViewController.swift in Sources */,
 				CB909FF61D3977B800879608 /* AppDelegate.swift in Sources */,

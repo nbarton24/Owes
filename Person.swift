@@ -21,7 +21,7 @@ class Person {
     var items = [Item]()
     private var _total = 0.0
     private var _tax = Item(item: "Tax", price: 0.0)
-    private var _subTotal = Item(item: "Subtotal", price: 0.0)
+    //private var _subTotal = Item(item: "Subtotal", price: 10.0)
     
     var selected = false
     
@@ -29,11 +29,15 @@ class Person {
     init(){
         self._firstName = "No"
         self._lastName = "Name"
+        let subTotal = Item(item: "Subtotal", price: 10.0)
+        self.items.append(subTotal)
     }
     
     init(fName:String,lName:String){
         self._firstName = fName
         self._lastName = lName
+        let subTotal = Item(item: "Subtotal", price: 10.0)
+        self.items.append(subTotal)
     }
     
 // MARK - Computed Variables
@@ -61,8 +65,23 @@ class Person {
     
 // MARK - Functions
     func calcTotal() -> Double {
+        var sum = 0.0
+        let itemCount = items.count
+        if itemCount == 1 {
+            //print("Item count is one")
+            return 0.0
+        }else{
+            //print("Going through the for loop")
+            for i in 0 ..< itemCount-1 {
+                //print("In for...i is \(i)")
+                sum += items[i].price
+                //print("Sum is \(sum)")
+            }
+//            items[itemCount-1].price = sum
+//            print("Final Sum is \(sum)")
+        }
         
-        return 0
+        return sum
     }
     
 }

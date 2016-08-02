@@ -42,10 +42,12 @@ class Item {
     }
     
     var price:Double {
+        
         get{
            return _itemPrice
         }
         set{
+            print("setting new price - \(price)")
             if price >= 0 { _itemPrice = price }
         }
     }
