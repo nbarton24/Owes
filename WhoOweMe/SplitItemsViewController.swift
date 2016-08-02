@@ -17,6 +17,7 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.peopleTableView.registerNib(UINib(nibName: "ItemHeaderTableViewCell", bundle:nil), forCellReuseIdentifier: "PersonHeader")
+        self.peopleTableView.opaque = true
         print("You're splitting this bill between:")
         for p in people {
             print(" -\(p.fullName)")
@@ -39,8 +40,22 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         return 1
     }
     
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let v = peopleTableView.dequeueReusableCellWithIdentifier("PersonHeader") as! ItemHeaderTableViewCell
+        v.personNameLabel.text = "Hello"
+        v.contentView.backgroundColor = UIColor.blueColor()
+        
+        return v
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let height = ItemHeaderTableViewCell().frame.height
+        return height
+    }
+//    
+//    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 //        let v = peopleTableView.dequeueReusableCellWithIdentifier("PersonHeader") as! ItemHeaderTableViewCell
+//        v.backgroundColor = UIColor.blueColor()
 //        v.personNameLabel.text = "Hello"
 //        
 //        return v
@@ -51,9 +66,9 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
 //    }
 
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return people[section].fullName
-    }
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return people[section].fullName
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()

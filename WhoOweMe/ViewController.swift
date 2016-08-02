@@ -65,7 +65,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //What does the header for this section look like?
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //let cell = AddPersonTableViewCell()
         let cell = contactTableView.dequeueReusableCellWithIdentifier("AddCell") as! AddPersonTableViewCell
         cell.delegate = self
         return cell
