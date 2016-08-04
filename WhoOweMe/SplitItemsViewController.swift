@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ItemAddDelegate {
+class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ItemAddDelegate, AddEditItemDelegate {
 
     var people = [Person]()
     
@@ -87,10 +87,27 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func addItem(it: Item, s:Int) {
-        people[s].items.insert(it, atIndex: 0)
-        peopleTableView.reloadData()
+//    func addItem(it: Item, s:Int) {
+//        people[s].items.insert(it, atIndex: 0)
+//        peopleTableView.reloadData()
+//        
+//    }
+//    
+//    func newItem(i: Item) {
+//        print("here")
+//    }
+    
+    func newItem(s: Int) {
+        let addItemView = AddEditItemViewController()
+        addItemView.delegate = self
+        addItemView.section = s
         
+        self.presentViewController(addItemView, animated: false, completion: nil)
+    }
+    
+    func addItem(i: Item, s: Int) {
+        people[s].items.insert(i, atIndex: 0)
+        peopleTableView.reloadData()
     }
 
 }
