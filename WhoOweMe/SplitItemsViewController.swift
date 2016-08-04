@@ -58,16 +58,8 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         return height
     }
     
-//    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let v = peopleTableView.dequeueReusableCellWithIdentifier("PersonHeader") as! ItemHeaderTableViewCell
-//        v.backgroundColor = UIColor.blueColor()
-//        v.personNameLabel.text = "Hello"
-//        
-//        return v
-//    }
-    
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Items: \(people[section].items.count)"
+        return "\(people[section].firstName)'s Items: \(people[section].items.count)"
     }
 
     
@@ -86,16 +78,6 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
         return cell
     }
-    
-//    func addItem(it: Item, s:Int) {
-//        people[s].items.insert(it, atIndex: 0)
-//        peopleTableView.reloadData()
-//        
-//    }
-//    
-//    func newItem(i: Item) {
-//        print("here")
-//    }
     
     func newItem(s: Int) {
         let addItemView = AddEditItemViewController()

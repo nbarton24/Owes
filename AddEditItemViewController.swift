@@ -39,6 +39,7 @@ class AddEditItemViewController: UIViewController {
     }
     
     @IBAction func cancelItem(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 
