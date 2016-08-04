@@ -35,7 +35,7 @@ class AddEditItemViewController: UIViewController {
         super.viewDidLoad()
         if edit {
             self.itemNameTV.text = oldItem!.name
-            self.itemPriceTV.text = "\(oldItem!.price)"
+            self.itemPriceTV.text = "\(String(format: "%.2f",oldItem!.price))"
             self.quantity = oldItem!.quantity
         }
         updateQuantityInfo()
@@ -58,7 +58,7 @@ class AddEditItemViewController: UIViewController {
         if itemPriceTV.text == "" {
             totalPriceLabel.text = "$0.00"
         }else{
-            totalPriceLabel.text = "$\(Double(itemPriceTV.text!)!*Double(quantity))"
+            totalPriceLabel.text = "$\(String(format: "%.2f",Double(itemPriceTV.text!)!*Double(quantity)))"
         }
     }
     

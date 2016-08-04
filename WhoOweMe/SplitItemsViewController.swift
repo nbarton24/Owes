@@ -24,10 +24,8 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         for p in people {
             p.items.insert(i, atIndex: 0)
             p.items.insert(i2, atIndex: 0)
-            //print(" -\(p.fullName)")
         }
         
-        //peopleTableView.scrollEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -59,14 +57,12 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "\(people[section].firstName)'s Items: \(people[section].items.count)"
+//        return "\(people[section].firstName)'s Items: \(people[section].items.count)"
+        people[section].calcTotal()
+        return "\(people[section].firstName)'s Items: \(people[section].items.count) for a total of $\(String(format: "%.2f",people[section].totalPrice))"
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == (people[indexPath.section].items.count - 1){
-            print("last row")
-            return
-        }
         
         let addItemView = AddEditItemViewController()
         addItemView.delegate = self
@@ -79,20 +75,31 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         self.presentViewController(addItemView, animated: false, completion: nil)
     }
     
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemTableViewCell
+//        
+//        cell.itemName.text = people[indexPath.section].items[indexPath.row].name
+//        cell.quantityLabel.text = "\(people[indexPath.section].items[indexPath.row].quantity)"
+//        
+//        if(indexPath.row == (people[indexPath.section].items.count - 1)){
+//            let newSubtotal = people[indexPath.section].calcTotal()
+//            people[indexPath.section].items[indexPath.row].price = newSubtotal
+//            cell.quantityLabel.hidden = true
+//        }
+//        
+//        cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
+//        
+//        return cell
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemTableViewCell
         
         cell.itemName.text = people[indexPath.section].items[indexPath.row].name
         cell.quantityLabel.text = "\(people[indexPath.section].items[indexPath.row].quantity)"
-        
-        if(indexPath.row == (people[indexPath.section].items.count - 1)){
-            let newSubtotal = people[indexPath.section].calcTotal()
-            people[indexPath.section].items[indexPath.row].price = newSubtotal
-            cell.quantityLabel.hidden = true
-        }
-        
-        cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
+        cell.priceLabel.text = "$\(String(format: "%.2f", people[indexPath.section].items[indexPath.row].price))"
         
         return cell
     }

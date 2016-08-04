@@ -16,10 +16,8 @@ class Person {
     
     var phoneNums = [PhoneNumber]()
     
-    //Will do more here with hiding items when I get to that point.
-    //Still need to decide how to handle tax and tip
     var items = [Item]()
-    private var _total = 0.0
+    var totalPrice = 0.0
     private var _tax = Item(item: "Tax", price: 0.0)
     //private var _subTotal = Item(item: "Subtotal", price: 10.0)
     
@@ -29,15 +27,15 @@ class Person {
     init(){
         self._firstName = "No"
         self._lastName = "Name"
-        let subTotal = Item(item: "Subtotal", price: 10.0)
-        self.items.append(subTotal)
+        //let subTotal = Item(item: "Subtotal", price: 10.0)
+        //self.items.append(subTotal)
     }
     
     init(fName:String,lName:String){
         self._firstName = fName
         self._lastName = lName
-        let subTotal = Item(item: "Subtotal", price: 10.0)
-        self.items.append(subTotal)
+        //let subTotal = Item(item: "Subtotal", price: 10.0)
+        //self.items.append(subTotal)
     }
     
 // MARK - Computed Variables
@@ -64,24 +62,26 @@ class Person {
     }
     
 // MARK - Functions
-    func calcTotal() -> Double {
+//    func calcTotal() -> Double {
+//        var sum = 0.0
+//        let itemCount = items.count
+//        if itemCount == 1 {
+//            return 0.0
+//        }else{
+//            for i in 0 ..< itemCount-1 {
+//                sum += items[i].price
+//            }
+//        }
+//        
+//        return sum
+//    }
+    
+    func calcTotal(){
         var sum = 0.0
-        let itemCount = items.count
-        if itemCount == 1 {
-            //print("Item count is one")
-            return 0.0
-        }else{
-            //print("Going through the for loop")
-            for i in 0 ..< itemCount-1 {
-                //print("In for...i is \(i)")
-                sum += items[i].price
-                //print("Sum is \(sum)")
-            }
-//            items[itemCount-1].price = sum
-//            print("Final Sum is \(sum)")
+        for i in items {
+            sum += (i.price) * Double(i.quantity)
         }
-        
-        return sum
+        totalPrice = sum
     }
     
 }
