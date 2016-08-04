@@ -19,8 +19,8 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         self.peopleTableView.registerNib(UINib(nibName: "ItemTableViewCell",bundle: nil), forCellReuseIdentifier: "ItemCell")
         self.peopleTableView.registerNib(UINib(nibName: "ItemHeaderTableViewCell", bundle:nil), forCellReuseIdentifier: "PersonHeader")
         self.peopleTableView.backgroundColor = UIColor.clearColor()
-        let i = Item(item: "Food", price: 8.99)
-        let i2 = Item(item: "Beer", price: 4.99)
+        let i = Item(item: "Food", price: 8.99, qty: 1)
+        let i2 = Item(item: "Beer", price: 4.99, qty: 2)
         for p in people {
             p.items.insert(i, atIndex: 0)
             p.items.insert(i2, atIndex: 0)
@@ -63,14 +63,18 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == (people[indexPath.section].items.count - 1){
+            print("last row")
+            return
+        }
+        
         let addItemView = AddEditItemViewController()
         addItemView.delegate = self
         addItemView.section = indexPath.section
         addItemView.itemNo = indexPath.row
         addItemView.edit = true
         
-        addItemView.oldName = people[indexPath.section].items[indexPath.row].name
-        addItemView.oldPrice = people[indexPath.section].items[indexPath.row].price
+        addItemView.oldItem = people[indexPath.section].items[indexPath.row]
         
         self.presentViewController(addItemView, animated: false, completion: nil)
     }
@@ -80,13 +84,16 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemTableViewCell
         
         cell.itemName.text = people[indexPath.section].items[indexPath.row].name
+        cell.quantityLabel.text = "\(people[indexPath.section].items[indexPath.row].quantity)"
         
         if(indexPath.row == (people[indexPath.section].items.count - 1)){
             let newSubtotal = people[indexPath.section].calcTotal()
             people[indexPath.section].items[indexPath.row].price = newSubtotal
+            cell.quantityLabel.hidden = true
         }
         
         cell.priceLabel.text = "$\(people[indexPath.section].items[indexPath.row].price)"
+        
         return cell
     }
     
