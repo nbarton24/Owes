@@ -61,8 +61,19 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return "\(people[section].firstName)'s Items: \(people[section].items.count)"
     }
-
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let addItemView = AddEditItemViewController()
+        addItemView.delegate = self
+        addItemView.section = indexPath.section
+        addItemView.itemNo = indexPath.row
+        addItemView.edit = true
+        
+        addItemView.oldName = people[indexPath.section].items[indexPath.row].name
+        addItemView.oldPrice = people[indexPath.section].items[indexPath.row].price
+        
+        self.presentViewController(addItemView, animated: false, completion: nil)
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -89,6 +100,11 @@ class SplitItemsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func addItem(i: Item, s: Int) {
         people[s].items.insert(i, atIndex: 0)
+        peopleTableView.reloadData()
+    }
+    
+    func updateItem(item: Item, sect: Int, row: Int) {
+        people[sect].items[row] = item
         peopleTableView.reloadData()
     }
 
