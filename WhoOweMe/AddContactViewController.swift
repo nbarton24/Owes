@@ -53,8 +53,11 @@ class AddContactViewController: UIViewController,UITableViewDelegate, UITableVie
         //This currently only handles when phone numbers are 10 digits
         cell.person = ppl[indexPath.row]
         cell.nameLabel.text = ppl[indexPath.row].fullName
-        let number = ppl[indexPath.row].phoneNums[0].formattedValue
-        cell.phoneLabel.text = "\(number)"
+        //ppl[indexPath.row].selected = true
+        if ppl[indexPath.row].selected { cell.backgroundColor = UIColor.greenColor()} else {cell.backgroundColor = UIColor.whiteColor()}
+        if ppl[indexPath.row].phoneNums.count != 0 {
+            cell.phoneLabel.text = "\(ppl[indexPath.row].phoneNums[0].formattedValue)"
+        }
         
         return cell
     }
